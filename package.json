@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build:step1": "rm -rf dist package-typescript-lambda-1.0.0.tgz && pnpm config set node-linker hoisted",
-    "build:step2": "tsc && cp package.json dist/package.json  && cd dist && pnpm install && pnpm pack && mv package-typescript-lambda-1.0.0.tgz ../package-typescript-lambda-1.0.0.tgz && cd ../",
+    "build:step2": "tsc && cp package.json dist/package.json  && cd dist && pnpm install --prod && zip -r -q ../package-typescript-lambda-1.0.0.zip . && echo zipped",
     "build:step3": "rm -rf dist && pnpm config set node-linker isolated",
     "build": "pnpm build:step1 && pnpm build:step2 && pnpm build:step3"
    },
