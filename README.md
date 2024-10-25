@@ -6,7 +6,12 @@ This uses pnpm but you can use nodejs. Just change the references in package.jso
 
 # Prerequisites
 - nodejs
-- pnpm 
+- pnpm
+- choco (so you can install zip below)
+https://chocolatey.org/install
+- zip (Right click - Powershell > Run as Administrator > choco install zip)
+- GitBash
+https://git-scm.com/downloads
 
 # Steps
 1. Clone this repo
