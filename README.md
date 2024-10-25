@@ -35,7 +35,7 @@ aws lambda create-function \
 # Key points
 ## package.json
 These are the dependencies that will be in the node_modules folder
-- script *pnpm pack* needs tese declared
+- script **pnpm pack** needs these declared
 ```json
   "bundledDependencies": [
     "@aws-sdk/client-ecs",
