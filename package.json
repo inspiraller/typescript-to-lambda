@@ -2,13 +2,10 @@
   "name": "package-typescript-lambda",
   "version": "1.0.0",
   "scripts": {
-    "build:step1": "rm -rf dist package-typescript-lambda-1.0.0.tgz && pnpm config set node-linker hoisted",
-    "build:step2": "tsc && cp package.json dist/package.json  && cd dist && pnpm install --prod && zip -r -q ../package-typescript-lambda-1.0.0.zip . && echo zipped",
-    "build:step3": "rm -rf dist && pnpm config set node-linker isolated",
-    "build": "pnpm build:step1 && pnpm build:step2 && pnpm build:step3"
+     "build": "cd scripts && sh build.sh"
    },
-   "keywords": ["typescript", "lambda", "pnpm"],
-  "description": "Example package.json for a typescript lambda. This will transpile src/index.ts into dist/index.js, then use pnpm install -P to install production dependencies, and then pack it inside a zip",
+   "keywords": ["typescript", "lambda", "Docker"],
+  "description": "Example package.json for a typescript lambda. This will transpile src/index.ts into dist/index.js, then use Docker to install node_modules before zipping for amazon environment",
   "dependencies": {
     "@aws-sdk/client-ec2": "^3.52.0",
     "@aws-sdk/client-ecs": "^3.52.0",
@@ -20,15 +17,11 @@
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   },
-  "bundledDependencies": [
-    "@aws-sdk/client-ecs",
-    "@aws-sdk/client-ssm",
-    "@aws-sdk/client-ec2"
-  ],
   "main": "index.js",
   "files": [
     "index.js",
     "package.json",
+    "package-lock.json",
     "node_modules/"
   ]
 }
