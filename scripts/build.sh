@@ -31,7 +31,7 @@ docker cp $container:app/dist/$zipname ../
 
 
 echo "8. Remove the docker container. We don't need this running."
-docker stop $container && rm $container
+docker stop $container && docker rm $container
 
 
 echo "9. Remove dist/ folder"
